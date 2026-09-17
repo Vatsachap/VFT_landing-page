@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VFT — Vatsa's Fitness Team</title>
+<meta name="description" content="Coached programming, weekly meal plans and form check-ins from Vatsa's Fitness Team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="#top" class="wordmark">VFT</a>
+  <nav class="nav">
+    <a href="#plans">Plans</a>
+    <a href="#latest">Latest</a>
+    <a href="#checkout">Checkout</a>
+  </nav>
+</header>
+
+<section id="top" class="hero">
+  <video class="hero-video" src="assets/videos/hero.mp4" autoplay muted loop playsinline></video>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <p class="eyebrow">Vatsa's Fitness Team</p>
+    <h1 class="hero-title">Get to the<br>fitness goals you<br>always wished for</h1>
+    <p class="hero-copy">Coached programming, weekly meal plans and form check-ins. No fluff, no guesswork — just the work that moves the needle.</p>
+    <div class="hero-ctas">
+      <a href="#checkout" class="btn btn-solid">Join now</a>
+      <a href="#plans" class="btn btn-outline">See the plans</a>
+    </div>
+  </div>
+</section>
+
+<section id="plans" class="section">
+  <p class="eyebrow eyebrow--muted">What you get</p>
+  <h2 class="section-title section-title--narrow">Two ways to train with me</h2>
+
+  <div class="controls-row">
+    <div class="segmented" id="currency-toggle">
+      <button type="button" data-currency="INR">₹ INR</button>
+      <button type="button" data-currency="USD">$ USD</button>
+    </div>
+    <div class="segmented" id="term-toggle">
+      <button type="button" data-term="1">1 month</button>
+      <button type="button" data-term="3">3 months</button>
+    </div>
+    <span class="save-note">Save 10% on 3 months</span>
+  </div>
+
+  <div class="plans-grid" id="plans-grid"></div>
+</section>
+
+<section id="latest" class="section section--panel">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow eyebrow--muted">Latest</p>
+      <h2 class="section-title">From the floor</h2>
+    </div>
+    <a href="https://www.instagram.com/vatsasfitnessteam/" target="_blank" rel="noopener" class="text-link">@vatsasfitnessteam</a>
+  </div>
+
+  <div class="latest-grid" id="latest-grid">
+    <div class="latest-card">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DHVkRFPxem_/" data-instgrm-version="14">
+        <a href="https://www.instagram.com/p/DHVkRFPxem_/" target="_blank" rel="noopener" class="ig-fallback">LOADING INSTAGRAM POST…</a>
+      </blockquote>
+    </div>
+    <div class="latest-card">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DRxWOi2D2RE/" data-instgrm-version="14">
+        <a href="https://www.instagram.com/p/DRxWOi2D2RE/" target="_blank" rel="noopener" class="ig-fallback">LOADING INSTAGRAM POST…</a>
+      </blockquote>
+    </div>
+    <div class="latest-card">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DB2Jp-ZO0Qi/" data-instgrm-version="14">
+        <a href="https://www.instagram.com/p/DB2Jp-ZO0Qi/" target="_blank" rel="noopener" class="ig-fallback">LOADING INSTAGRAM POST…</a>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="checkout" class="section section--panel">
+  <p class="eyebrow eyebrow--muted">Checkout</p>
+  <h2 class="section-title section-title--narrow">Purchase your plans here</h2>
+
+  <div class="checkout-grid">
+    <div class="checkout-plans" id="checkout-plans"></div>
+
+    <div class="checkout-summary">
+      <div class="summary-row">
+        <span class="label">Selected</span>
+        <span class="value" id="summary-title"></span>
+      </div>
+      <div class="summary-row summary-row--total">
+        <span class="label">Total today</span>
+        <span class="value value--big" id="summary-price"></span>
+      </div>
+      <button type="button" class="btn btn-solid btn-pay" id="pay-btn">Pay with Razorpay</button>
+      <p class="fine-print">Razorpay hook-up pending — add your key id and the button goes live. UPI, cards, netbanking, wallets.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span>VFT — Vatsa's Fitness Team</span>
+  <a href="https://www.instagram.com/vatsasfitnessteam/" target="_blank" rel="noopener">Instagram</a>
+</footer>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script async src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
