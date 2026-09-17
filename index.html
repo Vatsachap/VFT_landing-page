@@ -17,7 +17,7 @@
   <nav class="nav">
     <a href="#plans">Plans</a>
     <a href="#latest">Latest</a>
-    <a href="#checkout">Checkout</a>
+    <a href="#checkout">Sign up</a>
   </nav>
 </header>
 
@@ -83,8 +83,8 @@
 </section>
 
 <section id="checkout" class="section section--panel">
-  <p class="eyebrow eyebrow--muted">Checkout</p>
-  <h2 class="section-title section-title--narrow">Purchase your plans here</h2>
+  <p class="eyebrow eyebrow--muted">Sign up</p>
+  <h2 class="section-title section-title--narrow">Tell us which plan you want</h2>
 
   <div class="checkout-grid">
     <div class="checkout-plans" id="checkout-plans"></div>
@@ -94,12 +94,39 @@
         <span class="label">Selected</span>
         <span class="value" id="summary-title"></span>
       </div>
-      <div class="summary-row summary-row--total">
-        <span class="label">Total today</span>
-        <span class="value value--big" id="summary-price"></span>
-      </div>
-      <button type="button" class="btn btn-solid btn-pay" id="pay-btn">Pay with Razorpay</button>
-      <p class="fine-print">Razorpay hook-up pending — add your key id and the button goes live. UPI, cards, netbanking, wallets.</p>
+
+      <form
+        action="https://gmail.us2.list-manage.com/subscribe/post?u=199e3a35a019f03ada8e5692e&amp;id=7fbc777e76&amp;f_id=007cfbe3f0"
+        method="post"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        class="mc-form validate"
+        target="_blank"
+        novalidate
+      >
+        <label class="mc-field-label" for="mce-EMAIL">Email</label>
+        <input type="email" name="EMAIL" id="mce-EMAIL" class="mc-input" placeholder="you@example.com" required>
+
+        <label class="mc-field-label" for="mce-FNAME">Name</label>
+        <input type="text" name="FNAME" id="mce-FNAME" class="mc-input" placeholder="Your name">
+
+        <label class="mc-field-label" for="mce-PHONE">Phone number</label>
+        <input type="tel" name="PHONE" id="mce-PHONE" class="mc-input" placeholder="Your phone number">
+
+        <!-- Plan choice, driven automatically by the plan row clicked on the left. -->
+        <select name="MMERGE2" id="mc-plan-select" class="mc-visually-hidden" aria-hidden="true" tabindex="-1">
+          <option value="Accountability">Accountability</option>
+          <option value="Power Building">Power Building</option>
+        </select>
+
+        <!-- Mailchimp bot-protection honeypot; keep this field, do not remove. -->
+        <div class="mc-visually-hidden" aria-hidden="true">
+          <input type="text" name="b_199e3a35a019f03ada8e5692e_7fbc777e76" tabindex="-1" value="">
+        </div>
+
+        <button type="submit" class="btn btn-solid btn-pay" id="mc-submit-btn" name="subscribe">Send it</button>
+      </form>
+      <p class="fine-print">Submits straight to the VFT Mailchimp audience — subscribers land under Accountability or Power Building based on the plan you picked.</p>
     </div>
   </div>
 </section>
@@ -110,7 +137,6 @@
 </footer>
 
 <script async src="https://www.instagram.com/embed.js"></script>
-<script async src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

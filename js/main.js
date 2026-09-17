@@ -1,9 +1,6 @@
 (function () {
   "use strict";
 
-  // Paste your live Razorpay key id here to make the pay button go live.
-  const RAZORPAY_KEY = "";
-
   const PLANS = [
     {
       slot: "CHECK-IN PHOTO",
@@ -33,7 +30,7 @@
     }
   ];
 
-  const state = { currency: "INR", term: 1, selectedPlan: 0, paying: false };
+  const state = { currency: "INR", term: 1, selectedPlan: 0 };
 
   const el = {
     currencyToggle: document.getElementById("currency-toggle"),
@@ -41,8 +38,7 @@
     plansGrid: document.getElementById("plans-grid"),
     checkoutPlans: document.getElementById("checkout-plans"),
     summaryTitle: document.getElementById("summary-title"),
-    summaryPrice: document.getElementById("summary-price"),
-    payBtn: document.getElementById("pay-btn")
+    planSelect: document.getElementById("mc-plan-select")
   };
 
   function money(n) {
@@ -106,39 +102,19 @@
     el.checkoutPlans.querySelectorAll(".checkout-plan-row").forEach((btn) => {
       btn.addEventListener("click", () => {
         state.selectedPlan = Number(btn.dataset.planIndex);
-        state.paying = false;
         render();
       });
     });
 
     // Summary
     el.summaryTitle.textContent = selected.title;
-    el.summaryPrice.textContent = selected.price;
-    el.payBtn.textContent = state.paying ? "Razorpay key needed" : "Pay with Razorpay";
-    el.payBtn.onclick = () => pay(selected);
-  }
-
-  function pay(plan) {
-    if (!RAZORPAY_KEY || !window.Razorpay) {
-      state.paying = true;
-      render();
-      return;
-    }
-    new window.Razorpay({
-      key: RAZORPAY_KEY,
-      amount: plan.amountPaise,
-      currency: state.currency,
-      name: "VFT — Vatsa's Fitness Team",
-      description: plan.title,
-      theme: { color: "#E8E4DA" }
-    }).open();
+    el.planSelect.value = state.selectedPlan === 0 ? "Accountability" : "Power Building";
   }
 
   el.currencyToggle.addEventListener("click", (e) => {
     const btn = e.target.closest("button[data-currency]");
     if (!btn) return;
     state.currency = btn.dataset.currency;
-    state.paying = false;
     render();
   });
 
@@ -146,7 +122,6 @@
     const btn = e.target.closest("button[data-term]");
     if (!btn) return;
     state.term = Number(btn.dataset.term);
-    state.paying = false;
     render();
   });
 

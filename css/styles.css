@@ -483,6 +483,42 @@ a:hover { color: var(--fg-strong); }
   letter-spacing: -.02em;
 }
 
+.mc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mc-field-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.mc-input {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+.mc-input:focus {
+  outline: none;
+  border-color: var(--fg);
+}
+
+.mc-visually-hidden {
+  position: absolute;
+  left: -5000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .btn-pay { width: 100%; }
 
 .fine-print {
