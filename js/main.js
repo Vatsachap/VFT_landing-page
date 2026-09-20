@@ -111,7 +111,8 @@
     // Summary
     el.summaryTitle.textContent = `${selected.title} · ${state.term === 3 ? "3 months" : "1 month"} · ${selected.price}`;
     el.planSelect.value = state.selectedPlan === 0 ? "Accountability" : "Power Building";
-    el.termSelect.value = state.term === 3 ? "3 months" : "1 month";
+    // Values must match the Mailchimp Term dropdown choices exactly ("1 months" is how it's spelled there).
+    el.termSelect.value = state.term === 3 ? "3 months" : "1 months";
     el.currencySelect.value = state.currency;
   }
 

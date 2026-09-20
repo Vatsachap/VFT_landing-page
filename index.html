@@ -102,7 +102,6 @@
         name="mc-embedded-subscribe-form"
         class="mc-form validate"
         target="_blank"
-        novalidate
       >
         <label class="mc-field-label" for="mce-EMAIL">Email</label>
         <input type="email" name="EMAIL" id="mce-EMAIL" class="mc-input" placeholder="you@example.com" required>
@@ -111,7 +110,7 @@
         <input type="text" name="FNAME" id="mce-FNAME" class="mc-input" placeholder="Your name">
 
         <label class="mc-field-label" for="mce-PHONE">Phone number</label>
-        <input type="tel" name="PHONE" id="mce-PHONE" class="mc-input" placeholder="Your phone number">
+        <input type="tel" name="PHONE" id="mce-PHONE" class="mc-input" placeholder="Your phone number" required>
 
         <!-- Plan choice, driven automatically by the plan row clicked on the left. -->
         <select name="MMERGE2" id="mc-plan-select" class="mc-visually-hidden" aria-hidden="true" tabindex="-1">
@@ -121,7 +120,7 @@
 
         <!-- Term and currency, also driven automatically by the toggles above. -->
         <select name="MMERGE3" id="mc-term-select" class="mc-visually-hidden" aria-hidden="true" tabindex="-1">
-          <option value="1 month">1 month</option>
+          <option value="1 months">1 months</option>
           <option value="3 months">3 months</option>
         </select>
         <select name="MMERGE5" id="mc-currency-select" class="mc-visually-hidden" aria-hidden="true" tabindex="-1">
