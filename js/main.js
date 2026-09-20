@@ -38,7 +38,9 @@
     plansGrid: document.getElementById("plans-grid"),
     checkoutPlans: document.getElementById("checkout-plans"),
     summaryTitle: document.getElementById("summary-title"),
-    planSelect: document.getElementById("mc-plan-select")
+    planSelect: document.getElementById("mc-plan-select"),
+    termSelect: document.getElementById("mc-term-select"),
+    currencySelect: document.getElementById("mc-currency-select")
   };
 
   function money(n) {
@@ -107,8 +109,10 @@
     });
 
     // Summary
-    el.summaryTitle.textContent = selected.title;
+    el.summaryTitle.textContent = `${selected.title} · ${state.term === 3 ? "3 months" : "1 month"} · ${selected.price}`;
     el.planSelect.value = state.selectedPlan === 0 ? "Accountability" : "Power Building";
+    el.termSelect.value = state.term === 3 ? "3 months" : "1 month";
+    el.currencySelect.value = state.currency;
   }
 
   el.currencyToggle.addEventListener("click", (e) => {

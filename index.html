@@ -119,6 +119,16 @@
           <option value="Power Building">Power Building</option>
         </select>
 
+        <!-- Term and currency, also driven automatically by the toggles above. -->
+        <select name="MMERGE3" id="mc-term-select" class="mc-visually-hidden" aria-hidden="true" tabindex="-1">
+          <option value="1 month">1 month</option>
+          <option value="3 months">3 months</option>
+        </select>
+        <select name="MMERGE5" id="mc-currency-select" class="mc-visually-hidden" aria-hidden="true" tabindex="-1">
+          <option value="INR">INR</option>
+          <option value="USD">USD</option>
+        </select>
+
         <!-- Mailchimp bot-protection honeypot; keep this field, do not remove. -->
         <div class="mc-visually-hidden" aria-hidden="true">
           <input type="text" name="b_199e3a35a019f03ada8e5692e_7fbc777e76" tabindex="-1" value="">
@@ -126,7 +136,7 @@
 
         <button type="submit" class="btn btn-solid btn-pay" id="mc-submit-btn" name="subscribe">Send it</button>
       </form>
-      <p class="fine-print">Submits straight to the VFT Mailchimp audience — subscribers land under Accountability or Power Building based on the plan you picked.</p>
+      <p class="fine-print">Submits straight to the VFT Mailchimp audience — subscribers land under Accountability or Power Building based on the plan you picked. Your plan, term and currency are sent automatically.</p>
     </div>
   </div>
 </section>
