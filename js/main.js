@@ -58,9 +58,12 @@
     const { index, per } = TERMS[state.term];
     return PLANS.map((p) => {
       const amount = p[state.currency][index];
+      // The 6-month term is the discounted one; show the undiscounted total struck through.
+      const original = state.term === 6 ? p[state.currency][0] * 6 : null;
       return {
         ...p,
         price: money(amount),
+        originalPrice: original ? money(original) : "",
         per,
         amountPaise: amount * 100
       };
@@ -87,6 +90,7 @@
         </div>
         <h3 class="plan-title">${p.title}</h3>
         <div class="plan-price-row">
+          ${p.originalPrice ? `<span class="plan-price-old">${p.originalPrice}</span>` : ""}
           <span class="plan-price">${p.price}</span>
           <span class="plan-per">${p.per}</span>
         </div>
