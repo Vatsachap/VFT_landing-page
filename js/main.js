@@ -6,8 +6,8 @@
       slot: "CHECK-IN PHOTO",
       video: "assets/videos/plan-accountability.mp4",
       title: "Accountability plan",
-      INR: [2399, 6477],
-      USD: [28, 76],
+      INR: [2399, 7197, 12955],
+      USD: [28, 84, 151],
       items: [
         "Regular customised workouts",
         "Form reviews on your video",
@@ -19,8 +19,8 @@
       slot: "LIFTING PHOTO",
       video: "assets/videos/plan-powerbuilding.mp4",
       title: "Power building",
-      INR: [2799, 7557],
-      USD: [32, 86],
+      INR: [2799, 8397, 15115],
+      USD: [32, 96, 173],
       items: [
         "Strength and hypertrophy in one block",
         "Squat, bench, deadlift progressions",
@@ -29,6 +29,12 @@
       ]
     }
   ];
+
+  const TERMS = {
+    1: { index: 0, per: "per month", label: "1 month", mailchimp: "1 months" },
+    3: { index: 1, per: "for 3 months", label: "3 months", mailchimp: "3 months" },
+    6: { index: 2, per: "for 6 months", label: "6 months", mailchimp: "6 months" }
+  };
 
   const state = { currency: "INR", term: 1, selectedPlan: 0 };
 
@@ -49,10 +55,9 @@
   }
 
   function pricedPlans() {
-    const termIndex = state.term === 3 ? 1 : 0;
-    const per = state.term === 3 ? "for 3 months" : "per month";
+    const { index, per } = TERMS[state.term];
     return PLANS.map((p) => {
-      const amount = p[state.currency][termIndex];
+      const amount = p[state.currency][index];
       return {
         ...p,
         price: money(amount),
@@ -109,10 +114,10 @@
     });
 
     // Summary
-    el.summaryTitle.textContent = `${selected.title} · ${state.term === 3 ? "3 months" : "1 month"} · ${selected.price}`;
+    el.summaryTitle.textContent = `${selected.title} · ${TERMS[state.term].label} ·${selected.price}`;
     el.planSelect.value = state.selectedPlan === 0 ? "Accountability" : "Power Building";
     // Values must match the Mailchimp Term dropdown choices exactly ("1 months" is how it's spelled there).
-    el.termSelect.value = state.term === 3 ? "3 months" : "1 months";
+    el.termSelect.value = TERMS[state.term].mailchimp;
     el.currencySelect.value = state.currency;
   }
 
